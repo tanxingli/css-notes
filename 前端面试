@@ -1,0 +1,34 @@
+1、position有几个属性，在工作中什么场景下用对应的属性
+  absolute 相对于包含它的父元素定位（ps:前提父元素有position:relative否则会相对于文档流来定位）
+  relative 相对定位
+  fixed 绝对定位（浏览器窗口的）
+  static 默认
+  inherit 继承父元素的position
+  
+2、字体单位有哪些 他们有什么区别？
+px 像素单位 相对于显示屏分辨率而言的（问题：IE无法调整那些使用px作为单位的字体大小??）
+rem 相对于根元素<html>来设置字体大小的
+em a、相对应父元素（问题：进行任何元素设置，都有可能需要知道他父元素的大小）
+   b、如当前对行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸。
+   c、em值不固定
+浏览器默认字体大小为16px 
+html { font-size: 62.5%; //设置默认字体为10px}---p { font-size: 1.5rem; // 1.5*10=15px}
+ 
+3、谈谈cpu、gpu
+ cpu:中央处理器是一块超大规模的集成电路，是一台计算机的运算核心（Core）和控制核心（ Control Unit）。
+ 它的功能主要是解释计算机指令以及处理计算机软件中的数据、、、
+ gpu：图形处理器、、
+      css的某些属性能触发gpu的硬件加速(如：transform、opacity、filter)
+      
+4、css3动画优化
+    原因：css动画属性会触发页面的重排relayout、重绘repaint、重组recomposite
+    css3动画在移动端很容易出现问题如何优化呢？
+     3d变形启动gpu加速（注意：3D变形会消耗更多的内存与功耗，应确实有性能问题时才去使用它）
+     少用box-shadows和渐变（gradients）性能杀手
+     减少重排让动画元素不在文档流中（用定位position/fixed\absolute）
+     （transform属性不会触发浏览器的 repaint ，是由gpu控制支持硬件加速不需要软件渲染）
+  http://www.w3cplus.com/css3/introduction-to-hardware-acceleration-css-animations.html
+5、对vue的理解
+6、跨域的几种方法以及实现的原理
+7、ajax获取数据后展示到页面有哪些方法
+8、清除浮动的有哪些方法各有什么缺陷或者弊端
